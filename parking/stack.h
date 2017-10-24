@@ -31,7 +31,6 @@ int GetLocation(SqStack S, int carNumber) {
 };
 
 bool Pop(SqStack &S, LinkQueue &Q, int carNumber, int _time, int &time) {
-    if(S.top != S.base) {
         int location = GetLocation(S, carNumber);
         if(S.top - S.base > location) {
             SqStack _S;
@@ -57,8 +56,4 @@ bool Pop(SqStack &S, LinkQueue &Q, int carNumber, int _time, int &time) {
             DeQueue(Q, _carNumber);
             Push(S, _carNumber, _time);
         }
-    }
-    else {
-        return false;
-    }
 };
