@@ -14,14 +14,14 @@ int main() {
     cin>>n;
     cout<<"请输入"<<n<<"个数据元素至集合A"<<endl;
     CreateList(La, n);
-    ListTraverse(La);
+    // ListTraverse(La);
 
     InitList(Lb);
     cout<<"请输入集合B的初始化空间"<<endl;
     cin>>m;
     cout<<"请输入"<<m<<"个数据元素至集合B"<<endl;    
     CreateList(Lb, m);
-    ListTraverse(Lb);
+    // ListTraverse(Lb);
 
     InitList(Lc); 
 

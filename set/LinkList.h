@@ -12,7 +12,7 @@ typedef struct LinkList {
     int len;
 } LinkList;
 
-//初始话一个表头
+//初始化一个表
 void InitList(LinkList &L) {
     L.len = 0;
     L.head = L.tail = (LinkNodePtr)malloc(sizeof(LinkNode));
@@ -24,12 +24,12 @@ int FindLocate(LinkList &L, char e) {
     LinkNodePtr p;
     p = L.head->next;
     int locate = 1;
-    if(p) {
+    // if(p) {
         for(;p && p->data < e; ) {
             p = p->next;
             locate++;
         }
-    }
+    // }
     return locate;
 };
 
