@@ -24,45 +24,26 @@ int FindLocate(LinkList &L, char e) {
     LinkNodePtr p;
     p = L.head->next;
     int locate = 1;
-    for(;p != NULL; ) {
-        if(e < p->data) {
+    if(p) {
+        for(;p && p->data < e; ) {
+            p = p->next;
             locate++;
-        } else if(e == p->data) {
-            locate = 0;
-            break;
         }
-        p = p->next;
     }
     return locate;
 };
 
-
-//判断是否重复
-// bool IsRepeat(LinkList &L, e) {
-//     LinkNodePtr p;
-//     p = L.head->next;
-//     for(; p != NULL; ) {
-//         if(p->data == e) {
-//             return true;
-//         } else {
-//             p = p->next;
-//         }
-//     }
-//     return false;
-// };
-
 //把元素插入表中，如果存在重复则不差入
-//把元素插入表中
 bool ListInsert(LinkList &L, int locate, char e) {
     LinkNodePtr q;
     q = L.head;//0
     for(int i = 1; i < locate; i++) {
        q = q->next;
     }
-    // if(q->next && e == q->next->data) {
-    //     return false;
-    // }
-    // else {
+    if(q->next && e == q->next->data) {
+        return false;
+    }
+    else {
         LinkNodePtr p;
         p = (LinkNodePtr)malloc(sizeof(LinkNode));
         p->data = e;
@@ -70,7 +51,7 @@ bool ListInsert(LinkList &L, int locate, char e) {
         q->next = p;
         L.len++;
         return true;    
-    // }
+    }
 };
 
 //把元素推入L中
@@ -91,8 +72,10 @@ void CreateList(LinkList &L, int n) {
     int locate;
     for(int i = 0; i < n; i++) {
         cin>>e;
-        locate = FindLocate(L, e);
-        ListInsert(L, locate, e);
+        if(e >= 'a' && e <= 'z') {
+            locate = FindLocate(L, e);
+            ListInsert(L, locate, e);
+        }
     }
 };
 

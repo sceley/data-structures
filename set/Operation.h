@@ -33,9 +33,7 @@ void Sum(LinkList &La, LinkList &Lb, LinkList &Lc) {
         char e;
         GetElem(Lb, i, e);
         locate = FindLocate(Lc, e);
-        if(locate) {
-            ListInsert(Lc, locate, e); 
-        }
+        ListInsert(Lc, locate, e); 
     }
 };
 
