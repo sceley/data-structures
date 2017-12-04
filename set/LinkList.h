@@ -36,8 +36,8 @@ int FindLocate(LinkList &L, char e) {
 //把元素插入表中，如果存在重复则不差入
 bool ListInsert(LinkList &L, int locate, char e) {
     LinkNodePtr q;
-    q = L.head;//0
-    for(int i = 1; i < locate; i++) {
+    q = L.head->next;//1
+    for(int i = 1; i < locate - 1; i++) {
        q = q->next;
     }
     if(q->next && e == q->next->data) {
