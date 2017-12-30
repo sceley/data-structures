@@ -5,27 +5,24 @@
 using namespace std;
 
 int main () {
-	// int vexnum, arcnum;
-	int term;
+	int term_count, max_grade;
 	cout<<"请输入学期总数"<<endl;
-	cin>>term;
-	int maximun;
+	cin>>term_count;
 	cout<<"请输入一学期的学分上限"<<endl;
-	cin>>maximun;
+	cin>>max_grade;
+
 	ALGraph G;
-	CreateGraph(G);
-	// Display(G);
 	Stack S;
+	CreateGraph(G);
 	InitStack(S);
 	TopologicalOrder(G, S);
-	// DisplayStack(S);
+
 	int sum = 0;
 	int j = 0;
 	while (!StackEmpty(S)) {
 		int i;
 		Pop(S, i);
-		// cout<<i<<endl;
-		if (sum + G.vertices[i].grade < maximun) {
+		if (sum + G.vertices[i].grade < max_grade) {
 			sum += G.vertices[i].grade;
 			cout<<G.vertices[i].data<<" ";
 		} else {
