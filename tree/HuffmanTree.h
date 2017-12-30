@@ -1,5 +1,5 @@
 #include<iostream>
-// #include "Link.h"
+
 using namespace std;
 
 #define max 10000;

@@ -1,7 +1,6 @@
 #include <iostream>
 #include "HuffmanTree.h"
 #include "Coder.h"
-#include "Link.h"
 
 using namespace std;
 
