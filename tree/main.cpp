@@ -37,21 +37,5 @@ int main() {
     // de[2] = '1';
     // de[3] = '0';
     // Decoder(HT, de);
-    // Display(HT, HT.ht[HT.htsize - 1]);
-
-
-    int deepth = Deepth(HT);
-    // Node node = new Node[3];
-    Link *link = new Link[deepth];
-    for(int i = 0; i < deepth; i++) {
-        int sum = 1;
-    	for(int j = i; j > 0; j--) {
-            sum *= 2;
-        }
-        link[i].string = new int[sum];
-    }
-
-    Display(HT, HT.ht[HT.htsize - 1], link, 0);
-    // for()
     return 0;
-}
+};

@@ -1,5 +1,5 @@
 #include<iostream>
-#include "Link.h"
+// #include "Link.h"
 using namespace std;
 
 #define max 10000;
@@ -39,7 +39,8 @@ void Select(HuffmanTree &HT, int i, int &s1, int &s2) {
 		s1 = s2;
 		s2 = s;
 	}
-}
+};
+
 void Create(HuffmanTree &HT, int n, char ch[], int weight[]) {
 	int i, s1, s2;
 	if (n > 1) {
@@ -61,6 +62,7 @@ void Create(HuffmanTree &HT, int n, char ch[], int weight[]) {
 		}
 	}
 };
+
 int Deepth(HuffmanTree HT) {
 	int n;
 	int location;
@@ -80,16 +82,16 @@ int Deepth(HuffmanTree HT) {
 	}
 	return i;
 };
-void Display(HuffmanTree HT, HTnode ht, Link link, int i) {
-	if(ht.ch) {
-		for(int k = 0; link[i].string[k]; k++) {
+// void Display(HuffmanTree HT, HTnode ht, Link link, int i) {
+// 	if(ht.ch) {
+// 		for(int k = 0; link[i].string[k]; k++) {
 
-		}
-		cout<<ht.weight<<endl;
-		i++;
-		Display(HT, HT.ht[ht.lchild], link, i);
-		Display(HT, HT.ht[ht.rchild], link, i);
-	}
-	int deepth = Deepth(HT);
-	cout<<"deepth"<<deepth<<endl;
-};
+// 		}
+// 		cout<<ht.weight<<endl;
+// 		i++;
+// 		Display(HT, HT.ht[ht.lchild], link, i);
+// 		Display(HT, HT.ht[ht.rchild], link, i);
+// 	}
+// 	int deepth = Deepth(HT);
+// 	cout<<"deepth"<<deepth<<endl;
+// };
