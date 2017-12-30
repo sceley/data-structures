@@ -2,6 +2,7 @@
 #include <cstring>
 
 using namespace std;
+
 struct HCnode {
 	char ch;
 	char *pstring;
@@ -16,6 +17,7 @@ void InitHuffmanCoder (HuffmanCoder &HC, int n) {
 	HC.hc = new HCnode[n];
 	HC.hcsize = n;
 };
+
 void CreateBook (HuffmanCoder &HC, HuffmanTree &HT) {
 	int i, j, c, f, start;
 	char *cd = new char[HC.hcsize];
@@ -38,7 +40,8 @@ void CreateBook (HuffmanCoder &HC, HuffmanTree &HT) {
 		cout<<endl;
 	}
 	delete []cd;
-}
+};
+
 void Coder (HuffmanCoder &HC, char ch[]) {
 	for (int i = 0; i < strlen(ch); i++) {
 		for (int j = 0; j < HC.hcsize; j++) {
@@ -52,6 +55,7 @@ void Coder (HuffmanCoder &HC, char ch[]) {
 	}
 	cout<<endl;
 };
+
 void Decoder (HuffmanTree &HT, char ch[]) {
 	int i = 0, p, pre, root = HT.htsize - 1;
 	pre = -1;

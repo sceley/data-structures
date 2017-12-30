@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Stack.h"
 #include "ALGraph.h"
+#include "Term.h"
 
 using namespace std;
 
@@ -17,22 +18,37 @@ int main () {
 	InitStack(S);
 	TopologicalOrder(G, S);
 
-	int sum = 0;
-	int j = 0;
+	Term *terms = new Term[term_count];
+
+	int j = 0, k = 0;
+	terms[j].grades = 0;
+	terms[j].length = 0;
 	while (!StackEmpty(S)) {
 		int i;
 		Pop(S, i);
-		if (sum + G.vertices[i].grade < max_grade) {
-			sum += G.vertices[i].grade;
-			cout<<G.vertices[i].data<<" ";
+		if (terms[j].grades + G.vertices[i].grade < max_grade) {
+			strcpy(terms[j].courses[k], G.vertices[i].data);
+			terms[j].grades += G.vertices[i].grade;
+			terms[j].length++;
+			k++;
 		} else {
-			cout<<j + 1<<"学期所修学分为"<<sum<<endl;
-			sum = 0;
+			Push(S, i);
 			j++;
-			cout<<G.vertices[i].data<<" ";
-			sum += G.vertices[i].grade;
+			k = 0;
+			terms[j].grades = 0;
+			terms[j].length = 0;
 		}
 	}
-	cout<<j + 1<<"学期所修学分为"<<sum<<endl;
+
+	
+	for (int i = 0; i < term_count; i++) {
+		cout<<"第"<<i + 1<<"学期所修课程为:";
+		for (int j = 0; j < terms[i].length; j++) {
+			cout<<terms[i].courses[j]<<" ";
+		}
+		cout<<endl;
+		cout<<"第"<<i + 1<<"学期所修学分为"<<terms[i].grades<<endl;
+	}
+
 	return 0;
 };

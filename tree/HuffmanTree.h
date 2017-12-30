@@ -18,6 +18,7 @@ void initHuffmanTree (HuffmanTree &HT, int n) {
 	HT.htsize = 2 * n - 1;
 	HT.ht = new HTnode[2 * n -1];
 };
+
 int MinVal(HuffmanTree &HT, int i) {
 	int j, k, min = max;
 	for (j = 0; j < i; j++) {
@@ -63,25 +64,25 @@ void Create(HuffmanTree &HT, int n, char ch[], int weight[]) {
 	}
 };
 
-int Deepth(HuffmanTree HT) {
-	int n;
-	int location;
-	int min = max;
-	for(n = 0; 2 * n - 1 < HT.htsize; n++) {
-	}
-	for(int i = 0; i < n; i++) {
-		if(HT.ht[i].weight < min) {
-			min = HT.ht[i].weight;
-			location = i;
-		};
-	}
-	HTnode f;
-	int i;
-	for(i = 1, f = HT.ht[location]; f.parent != -1; i++) {
-		f = HT.ht[f.parent];
-	}
-	return i;
-};
+// int Deepth(HuffmanTree HT) {
+// 	int n;
+// 	int location;
+// 	int min = max;
+// 	for(n = 0; 2 * n - 1 < HT.htsize; n++) {
+// 	}
+// 	for(int i = 0; i < n; i++) {
+// 		if(HT.ht[i].weight < min) {
+// 			min = HT.ht[i].weight;
+// 			location = i;
+// 		};
+// 	}
+// 	HTnode f;
+// 	int i;
+// 	for(i = 1, f = HT.ht[location]; f.parent != -1; i++) {
+// 		f = HT.ht[f.parent];
+// 	}
+// 	return i;
+// };
 // void Display(HuffmanTree HT, HTnode ht, Link link, int i) {
 // 	if(ht.ch) {
 // 		for(int k = 0; link[i].string[k]; k++) {

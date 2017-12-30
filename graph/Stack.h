@@ -22,7 +22,6 @@ void Push (Stack &S, SElemType e) {
 	if (S.top - S.base >= S.stacksize) {
 	} else {
 		*S.top++ = e;
-		// S.top++;
 	}
 };
 

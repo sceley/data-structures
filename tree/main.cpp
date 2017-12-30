@@ -8,10 +8,8 @@ int main() {
     int n;
     cout<<"输入数目"<<endl;
     cin>>n;
-    char *ch;
-    ch = new char[n];
-    int *weight;
-    weight = new int[n];
+    char *ch = new char[n];
+    int *weight = new int[n];
     for(int i = 0; i < n; i++) {
     	cout<<"请输入第"<<i + 1<<"个字符及权值"<<endl;
     	cin.get();
@@ -26,15 +24,21 @@ int main() {
     InitHuffmanCoder(HC, n);
     CreateBook(HC, HT);
     delete []ch;
-    // ch = new char[n + 1];
-    // cin.get();
-    // cin.get(ch, n + 1);
-    // Coder(HC, ch);
-    // char *de = new char[4];
-    // de[0] = '1';
-    // de[1] = '1';
-    // de[2] = '1';
-    // de[3] = '0';
-    // Decoder(HT, de);
+
+    char *en = new char[200];
+
+    cout<<"输入需要编码的字符串"<<endl;
+    cin.get();
+    cin.get(en, 200);
+    Coder(HC, en);
+    delete []en;
+
+    cout<<"输入需要译码的字符串"<<endl;
+    char *de = new char[200];
+    cin.get();
+    cin.get(de, 200);
+    Decoder(HT, de);
+    delete []de;
+    
     return 0;
 };

@@ -6,14 +6,11 @@ using namespace std;
 #define MAX_VERTEX_NUM 20
 #define MAX_NAME 3
 
-// typedef char InfoType;
-
 typedef char VertexType[MAX_NAME];
 
 typedef struct ArcNode {
 	int adjvex;
 	struct ArcNode *nextarc;
-	// InfoType *info;
 } ArcNode;
 
 typedef struct VNode {
@@ -25,7 +22,6 @@ typedef struct VNode {
 typedef struct {
 	AdjList vertices;
 	int vexnum, arcnum;
-	// int kind;
 } ALGraph;
 
 int LocateVex (ALGraph G, VertexType u) {
@@ -91,12 +87,12 @@ void TopologicalOrder (ALGraph G, Stack &T) {
 			Push(S, i);
 		}
 	}
-	// count = 0;
+	int count = 0;
 	while (!StackEmpty(S)) {
 		int e;
 		Pop(S, e);
 		Push(T, e);
-		// ++count;
+		++count;
 		ArcNode *p;
 		for (p = G.vertices[e].firstarc; p; p = p->nextarc) {
 			int k = p->adjvex;
